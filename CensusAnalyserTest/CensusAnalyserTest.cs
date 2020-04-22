@@ -79,6 +79,76 @@ namespace Tests
             object exceptionMessage = censusPath.ReadRecords(header);
             Assert.AreEqual("Invalid Header", exceptionMessage);
         }
-    }
 
+
+        /// <Test6 :CheckNumberOfRecordsMatchesStateCode>
+        /// #Creating object as a 'stateCodePath' of class 'CsvStates'
+        /// and getting path of 'StateCode.csv' file.
+        /// #calling 'NumberOfRecords' method and getting numberOfRecords
+        /// #matching expected records with numberOfRecords.
+        /// </Test6 :CheckNumberOfRecordsMatchesStateCode>
+        [Test]
+        public void CheckNumberOfRecordsMatchesStateCode()
+        {
+            CsvStates stateCodePath = new CsvStates();
+            char delimeter = ',';
+            string[] header = {"SrNo","State","PIN","StateCode"};
+            var numberOfRecords = stateCodePath.ReadRecordsStateCode(header, delimeter);
+            Assert.AreEqual(37, numberOfRecords);
+        }
+
+        /// <Test7 :CheckIncorrectCSVFileStateCode>
+        ///#Sent Incorrect CSV file name : 'StateCode.csv'
+        ///#CSV File if incorrect Returns a custom Exception as "Invalid file"
+        ///test case passes
+        /// </Test7 :CheckIncorrectCSVFileStateCode>
+        [Test]
+        public void CheckIncorrectCSVFileStateCode()
+        {
+            CsvStates stateCodePath = new CsvStates(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusCodeIncorrect.csv");
+            object exceptionMessage = stateCodePath.ReadRecordsStateCode();
+            Assert.AreEqual("Invalid file", exceptionMessage);
+        }
+
+        /// <Test8 :CheckCorrectDotExtensionFileStateCode>
+        ///#Sent Incorrect Extension of file : '.txt'
+        ///#CSV File if incorrect Returns a custom Exception as "Invalid Extension of file"
+        ///test case passes
+        /// </Test8 :CheckCorrectDotExtensionFileStateCode>
+        [Test]
+        public void CheckCorrectDotExtensionFileStateCode()
+        {
+            CsvStates stateCodePath = new CsvStates(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCodeIncorrectExtension.txt");
+            object exceptionMessage = stateCodePath.ReadRecordsStateCode();
+            Assert.AreEqual("Invalid Extension of file", exceptionMessage);
+        }
+
+        /// <Test9 :CheckInCorrectDelimeterStateCode>
+        ///#Sent user delimeter : ';'
+        ///#CSV File if incorrect Returns a custom Exception as "Incorrect Delimeter"
+        ///test case passes
+        /// </Test9 :CheckInCorrectDelimeterStateCode>
+        [Test]
+        public void CheckInCorrectDelimeterStateCode()
+        {
+            CsvStates stateCodePath = new CsvStates(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv");
+            char userDelimeter = ';';
+            object exceptionMessage = stateCodePath.ReadRecordsStateCode(null, userDelimeter);
+            Assert.AreEqual("Incorrect Delimeter", exceptionMessage);
+        }
+
+        /// <Test10 :CheckInvalidHeaderStateCode>
+        ///#Sending inValid header[] 
+        ///#Comparing with actual header of csv file and returning exception message
+        ///message is same then, test case passes
+        /// </Test10 :CheckInvalidHeaderStateCode>
+        [Test]
+        public void CheckInvalidHeaderStateCode()
+        {
+            CsvStates stateCodePath = new CsvStates();
+            string[] header = { "State", "InvalidHeader", "AreaInSqKm", "DensityPerSqKm" };
+            object exceptionMessage = stateCodePath.ReadRecordsStateCode(header);
+            Assert.AreEqual("Invalid Header", exceptionMessage);
+        }
+    }
 }
