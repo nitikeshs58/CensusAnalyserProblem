@@ -5,6 +5,10 @@ namespace Tests
 {
     public class CensusTests
     {
+
+        string stateCensusDataPath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
+        string stateCodePath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+
         [SetUp]
         public void Setup()
         {
@@ -19,10 +23,11 @@ namespace Tests
         [Test]
         public void CheckNumberOfRecordsMatches()
         {
-            StateCensusAnalyser censusPath= new StateCensusAnalyser();
+            StateCensusAnalyser censusPath= new StateCensusAnalyser(stateCensusDataPath);
             char delimeter = ',';
             string[] header = { "State", "Population", "AreaInSqKm", "DensityPerSqKm" };
-            var numberOfRecords = censusPath.ReadRecords(header,delimeter);
+            string path =stateCensusDataPath;
+            var numberOfRecords = censusPath.ReadRecords(header,delimeter,path);
             Assert.AreEqual(29, numberOfRecords);
         }
 
@@ -34,8 +39,11 @@ namespace Tests
         [Test]
         public void CheckIncorrectCSVFile()
         {
-            StateCensusAnalyser censusPath = new StateCensusAnalyser(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusDataIncorrect.csv");
-            object exceptionMessage=censusPath.ReadRecords();
+            StateCensusAnalyser censusPath = new StateCensusAnalyser(stateCensusDataPath);
+            string incorrectPath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusDataIncorrect.csv";
+            char delimeter = ',';
+            string[] header = { "State", "Population", "AreaInSqKm", "DensityPerSqKm" };
+            object exceptionMessage=censusPath.ReadRecords(header,delimeter, incorrectPath);
             Assert.AreEqual("Invalid file", exceptionMessage);
         }
 
@@ -47,8 +55,11 @@ namespace Tests
         [Test]
         public void CheckCorrectDotExtensionFile()
         {
-            StateCensusAnalyser censusPath = new StateCensusAnalyser(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusDataIncorrectExtension.txt");
-            object exceptionMessage = censusPath.ReadRecords();
+            StateCensusAnalyser censusPath = new StateCensusAnalyser(stateCensusDataPath);
+            char delimeter = ',';
+            string[] header = { "State", "Population", "AreaInSqKm", "DensityPerSqKm" };
+            string inCorrectExtensionPath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusDataIncorrectExtension.txt";
+            object exceptionMessage = censusPath.ReadRecords(header,delimeter,inCorrectExtensionPath);
             Assert.AreEqual("Invalid Extension of file", exceptionMessage);
         }
 
@@ -60,9 +71,10 @@ namespace Tests
         [Test]
         public void CheckInCorrectDelimeter()
         {
-            StateCensusAnalyser censusPath = new StateCensusAnalyser(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv");
+            StateCensusAnalyser censusPath = new StateCensusAnalyser(stateCensusDataPath);
             char userDelimeter = ';';
-            object exceptionMessage = censusPath.ReadRecords(null,userDelimeter);
+            string path = stateCensusDataPath;
+            object exceptionMessage = censusPath.ReadRecords(null,userDelimeter,path);
             Assert.AreEqual("Incorrect Delimeter", exceptionMessage);
         }
 
@@ -74,9 +86,11 @@ namespace Tests
         [Test]
         public void CheckInvalidHeader()
         {
-            StateCensusAnalyser censusPath = new StateCensusAnalyser();
+            StateCensusAnalyser censusPath = new StateCensusAnalyser(stateCensusDataPath);
             string[] header = { "State", "InvalidHeader", "AreaInSqKm", "DensityPerSqKm" };
-            object exceptionMessage = censusPath.ReadRecords(header);
+            char userDelimeter = ',';
+            string path = stateCensusDataPath;
+            object exceptionMessage = censusPath.ReadRecords(header,userDelimeter,path);
             Assert.AreEqual("Invalid Header", exceptionMessage);
         }
 
@@ -90,10 +104,11 @@ namespace Tests
         [Test]
         public void CheckNumberOfRecordsMatchesStateCode()
         {
-            CsvStates stateCodePath = new CsvStates();
             char delimeter = ',';
-            string[] header = {"SrNo","State","PIN","StateCode"};
-            var numberOfRecords = stateCodePath.ReadRecordsStateCode(header, delimeter);
+            string[] header = { "SrNo", "State", "PIN", "StateCode" };
+            string path = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            CsvStates stateCodePath = new CsvStates(header, delimeter, path);
+            var numberOfRecords = stateCodePath.CsvStateCodeReadRecord();
             Assert.AreEqual(37, numberOfRecords);
         }
 
@@ -105,8 +120,11 @@ namespace Tests
         [Test]
         public void CheckIncorrectCSVFileStateCode()
         {
-            CsvStates stateCodePath = new CsvStates(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusCodeIncorrect.csv");
-            object exceptionMessage = stateCodePath.ReadRecordsStateCode();
+            char delimeter = ',';
+            string[] header = { "SrNo", "State", "PIN", "StateCode" };
+            string path = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCodeIncorrect.csv";
+            CsvStates stateCodePath = new CsvStates(header, delimeter, path);
+            object exceptionMessage = stateCodePath.CsvStateCodeReadRecord();
             Assert.AreEqual("Invalid file", exceptionMessage);
         }
 
@@ -118,8 +136,11 @@ namespace Tests
         [Test]
         public void CheckCorrectDotExtensionFileStateCode()
         {
-            CsvStates stateCodePath = new CsvStates(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCodeIncorrectExtension.txt");
-            object exceptionMessage = stateCodePath.ReadRecordsStateCode();
+            char delimeter = ',';
+            string[] header = { "SrNo", "State", "PIN", "StateCode" };
+            string path = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.txt";
+            CsvStates stateCodePath = new CsvStates(header, delimeter, path);
+            object exceptionMessage = stateCodePath.CsvStateCodeReadRecord();
             Assert.AreEqual("Invalid Extension of file", exceptionMessage);
         }
 
@@ -131,9 +152,11 @@ namespace Tests
         [Test]
         public void CheckInCorrectDelimeterStateCode()
         {
-            CsvStates stateCodePath = new CsvStates(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv");
-            char userDelimeter = ';';
-            object exceptionMessage = stateCodePath.ReadRecordsStateCode(null, userDelimeter);
+            char delimeter = ';';
+            string[] header = { "SrNo", "State", "PIN", "StateCode" };
+            string path = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            CsvStates stateCodePath = new CsvStates(header, delimeter, path);
+            object exceptionMessage = stateCodePath.CsvStateCodeReadRecord();
             Assert.AreEqual("Incorrect Delimeter", exceptionMessage);
         }
 
@@ -145,9 +168,11 @@ namespace Tests
         [Test]
         public void CheckInvalidHeaderStateCode()
         {
-            CsvStates stateCodePath = new CsvStates();
-            string[] header = { "State", "InvalidHeader", "AreaInSqKm", "DensityPerSqKm" };
-            object exceptionMessage = stateCodePath.ReadRecordsStateCode(header);
+            char delimeter = ',';
+            string[] header = { "SrNo", "InvalidState", "PIN", "StateCode" };
+            string path = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            CsvStates stateCodePath = new CsvStates(header, delimeter, path);
+            object exceptionMessage = stateCodePath.CsvStateCodeReadRecord();
             Assert.AreEqual("Invalid Header", exceptionMessage);
         }
     }

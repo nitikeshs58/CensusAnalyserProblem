@@ -7,15 +7,13 @@ namespace CensusAnalyserProblem
     public class StateCensusAnalyser
     {
         // Variables
-        string stateCensusDataPath;
+        string givenPath;
         int numberOfRecord;
         public char delimeter;
-        string[] defaultHeaders = { "State", "Population", "AreaInSqKm", "DensityPerSqKm" };
-        private static object csvRecords;
 
-        public StateCensusAnalyser(string filePath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv")
+        public StateCensusAnalyser(string filePath = null)
         {
-            stateCensusDataPath=filePath;
+            givenPath=filePath;
         }
 
         // Main Method
@@ -25,20 +23,20 @@ namespace CensusAnalyserProblem
         }//end: static void Main(string[] args)
 
         // ReadRecords Method
-        public object ReadRecords(string[] passHeader=null,char in_delimeter=',')
+        public object ReadRecords(string[] passHeader=null,char in_delimeter=',',string filePath=null)
         {
             try
             {
-                if (!stateCensusDataPath.Contains(".csv"))
+                if (!filePath.Contains(".csv"))
                 {
-                    throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.FILE_NOT_FOUND, "Invalid Extension of file");
+                    throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.INVALID_EXTENSION_OF_FILE, "Invalid Extension of file");
                 }
-                else if (!stateCensusDataPath.Contains("StateCensusData.csv"))
+                else if (!filePath.Contains(givenPath))
                 {
-                    throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.INVALID_EXTENSION_OF_FILE, "Invalid file");
+                    throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.FILE_NOT_FOUND, "Invalid file");
                 }
                 
-                var records = new StreamReader(stateCensusDataPath);
+                var records = new StreamReader(filePath);
                 CsvReader csvRecords = new CsvReader(records);
                 string[] headers = csvRecords.GetFieldHeaders();                
                 delimeter = csvRecords.Delimiter;
@@ -85,6 +83,6 @@ namespace CensusAnalyserProblem
             }
             return true;
         }//End of isHeadersame
-    }//End of class StateCensusAnalyser    
+    }//End of class StateCensusAnalyser            
 }// End of namespace CensusAnalyserProblem
 
