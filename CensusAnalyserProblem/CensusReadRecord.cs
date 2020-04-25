@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using CsvReader = LumenWorks.Framework.IO.Csv.CsvReader;
 
@@ -37,10 +38,16 @@ namespace CensusAnalyserProblem
                 }
 
                 CsvReader csvRecords = new CsvReader(new StreamReader(filePath),true);
+                int fieldCount = csvRecords.FieldCount;
                 string[] headers = csvRecords.GetFieldHeaders();
                 delimeter = csvRecords.Delimiter;
+                // string ArrayList
+                List<string[]> record = new List<string[]>();
                 while (csvRecords.ReadNextRecord())
                 {
+                    string[] tempRecord = new string[fieldCount];
+                    csvRecords.CopyCurrentRecordTo(tempRecord);
+                    record.Add(tempRecord);
                     numberOfRecord++;
                 }
 
