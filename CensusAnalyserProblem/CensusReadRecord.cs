@@ -7,7 +7,7 @@ namespace CensusAnalyserProblem
     class CsvStateCensusReadRecord
     {
         // Variables
-        string givenPath;
+        string actualPath;
         char delimeter;
         int numberOfRecord;
 
@@ -19,7 +19,7 @@ namespace CensusAnalyserProblem
         //Parameterised constructor
         public CsvStateCensusReadRecord(string filePath=null)
         {
-            this.givenPath = filePath;
+            this.actualPath = filePath;
         }
 
         // ReadRecords Method
@@ -31,16 +31,23 @@ namespace CensusAnalyserProblem
                 {
                     throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.INVALID_EXTENSION_OF_FILE, "Invalid Extension of file");
                 }
-                else if (!filePath.Contains(givenPath))
+                else if (!filePath.Contains(actualPath))
                 {
                     throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.FILE_NOT_FOUND, "Invalid file");
                 }
 
-                var records = new StreamReader(filePath);
-                CsvReader csvRecords = new CsvReader(records);
+                CsvReader csvRecords = new CsvReader(new StreamReader(filePath),true);
                 string[] headers = csvRecords.GetFieldHeaders();
                 delimeter = csvRecords.Delimiter;
+                while (csvRecords.ReadNextRecord())
+                {
+                    numberOfRecord++;
+                }
 
+                if(numberOfRecord==0)
+                {
+                    throw new CSVException(CSVException.ExceptionType.FILE_IS_EMPTY,"File has no data");
+                }
                 if (!in_delimeter.Equals(delimeter))
                 {
                     throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.INCORRECT_DELIMETER, "Incorrect Delimeter");
@@ -49,15 +56,15 @@ namespace CensusAnalyserProblem
                 {
                     throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.INVALID_HEADER_ERROR, "Invalid Header");
                 }
-                while (csvRecords.ReadNextRecord())
-                {
-                    numberOfRecord++;
-                }
                 return numberOfRecord;
             }
             catch (CensusAnalyserException file_not_found)
             {
                 return file_not_found.Message;
+            }
+            catch(CSVException emptyFileException)
+            {
+                return emptyFileException.Message;
             }
             catch (Exception exception)
             {
