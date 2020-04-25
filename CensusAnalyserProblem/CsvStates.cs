@@ -2,13 +2,13 @@
 
 namespace CensusAnalyserProblem
 {
-    public class CsvStates
+    public class CsvStates: ICSVBuilder
     {
         public static string stateCodePath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
         // variables declaration
-        string[] header;
-        char delimeter;
-        string givenPath;
+        readonly string[] header;
+        readonly char delimeter;
+        readonly string givenPath;
 
         // Default Constructor
         public CsvStates()
@@ -36,6 +36,26 @@ namespace CensusAnalyserProblem
             CsvStateCensusReadRecord stateCodePathObject = new CsvStateCensusReadRecord(stateCodePath);
             var returnObject= stateCodePathObject.ReadRecords(header, delimeter,givenPath);
             return returnObject;
+        }
+
+        private static CsvStates InstanceOfCsvStates()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static StateCensusAnalyser InstanceOfStateCensusAnalyser()
+        {
+            throw new NotImplementedException();
+        }
+
+        object ICSVBuilder.CsvStateCensusReadRecord(string[] header, char delimeter, string givenPath)
+        {
+            throw new NotImplementedException();
+        }
+
+        object ICSVBuilder.CsvStateCodeReadRecord(string[] header, char delimeter, string givenPath)
+        {
+            throw new NotImplementedException();
         }
     }//End of class CsvStates    
 }// End of namespace CensusAnalyserProblem

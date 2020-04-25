@@ -9,8 +9,8 @@ namespace Tests
     {
         //with NameSpace Assembly reference 
         // DeligateMethod -------Object-------Reference to delegate method
-        CsvStateCensusData stateCensus = CsvStateCensusReadRecord;
-        CsvStateCodeData stateCode = CsvStateCodeReadRecord;
+        readonly CsvStateCensusData stateCensus = CSVFactory.DelegateOfStateCensusAnalyser();
+        readonly CsvStateCodeData stateCode = CSVFactory.DelegateOfCsvStates();
 
         [SetUp]
         public void Setup()

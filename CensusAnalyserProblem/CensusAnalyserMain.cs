@@ -2,7 +2,7 @@
 
 namespace CensusAnalyserProblem
 {
-    public class StateCensusAnalyser
+    public class StateCensusAnalyser: ICSVBuilder
     {
         public static string stateCensusPath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
         // variables declaration
@@ -41,7 +41,17 @@ namespace CensusAnalyserProblem
             CsvStateCensusReadRecord stateCensusPathObject = new CsvStateCensusReadRecord(stateCensusPath);
             var returnObject = stateCensusPathObject.ReadRecords(header, delimeter, givenPath);
             return returnObject;
-        } 
+        }
+
+        object ICSVBuilder.CsvStateCensusReadRecord(string[] header, char delimeter, string givenPath)
+        {
+            throw new NotImplementedException();
+        }
+
+        object ICSVBuilder.CsvStateCodeReadRecord(string[] header, char delimeter, string givenPath)
+        {
+            throw new NotImplementedException();
+        }
     }//End of class StateCensusAnalyser            
 }// End of namespace CensusAnalyserProblem
 
