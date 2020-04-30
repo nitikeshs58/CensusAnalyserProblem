@@ -1,176 +1,224 @@
 [
   {
+    "SrNo": 3,
+    "State": "Andhra Pradesh New",
+    "PIN": 37,
+    "StateCode": "AD"
+  },
+  {
+    "SrNo": 1,
+    "State": "Andaman and Nicobar Islands",
+    "PIN": 35,
+    "StateCode": "AN"
+  },
+  {
+    "SrNo": 2,
     "State": "Andhra Pradesh",
-    "Population": 49386799,
-    "AreaInSqKm": 162968,
-    "DensityPerSqKm": 303
+    "PIN": 28,
+    "StateCode": "AP"
   },
   {
+    "SrNo": 4,
     "State": "Arunachal Pradesh",
-    "Population": 1382611,
-    "AreaInSqKm": 14525,
-    "DensityPerSqKm": 321
+    "PIN": 12,
+    "StateCode": "AR"
   },
   {
+    "SrNo": 5,
     "State": "Assam",
-    "Population": 31169272,
-    "AreaInSqKm": 78438,
-    "DensityPerSqKm": 397
+    "PIN": 18,
+    "StateCode": "AS"
   },
   {
+    "SrNo": 6,
     "State": "Bihar",
-    "Population": 103804637,
-    "AreaInSqKm": 94163,
-    "DensityPerSqKm": 1102
+    "PIN": 10,
+    "StateCode": "BH"
   },
   {
+    "SrNo": 7,
+    "State": "Chandigarh",
+    "PIN": 4,
+    "StateCode": "CH"
+  },
+  {
+    "SrNo": 8,
     "State": "Chattisgarh",
-    "Population": 25540196,
-    "AreaInSqKm": 135191,
-    "DensityPerSqKm": 189
+    "PIN": 22,
+    "StateCode": "CT"
   },
   {
+    "SrNo": 10,
+    "State": "Daman and Diu",
+    "PIN": 25,
+    "StateCode": "DD"
+  },
+  {
+    "SrNo": 11,
+    "State": "Delhi",
+    "PIN": 7,
+    "StateCode": "DL"
+  },
+  {
+    "SrNo": 9,
+    "State": "Dadra and Nagar Haveli",
+    "PIN": 26,
+    "StateCode": "DN0"
+  },
+  {
+    "SrNo": 12,
     "State": "Goa",
-    "Population": 1457723,
-    "AreaInSqKm": 3702,
-    "DensityPerSqKm": 394
+    "PIN": 30,
+    "StateCode": "GA"
   },
   {
+    "SrNo": 13,
     "State": "Gujarat",
-    "Population": 60383628,
-    "AreaInSqKm": 196024,
-    "DensityPerSqKm": 308
+    "PIN": 24,
+    "StateCode": "GJ"
   },
   {
-    "State": "Haryana",
-    "Population": 25353081,
-    "AreaInSqKm": 44212,
-    "DensityPerSqKm": 573
-  },
-  {
+    "SrNo": 15,
     "State": "Himachal Pradesh",
-    "Population": 6864602,
-    "AreaInSqKm": 55673,
-    "DensityPerSqKm": 123
+    "PIN": 2,
+    "StateCode": "HP"
   },
   {
-    "State": "Jammu and Kashmir",
-    "Population": 12548926,
-    "AreaInSqKm": 222236,
-    "DensityPerSqKm": 57
+    "SrNo": 14,
+    "State": "Haryana",
+    "PIN": 6,
+    "StateCode": "HR"
   },
   {
+    "SrNo": 17,
     "State": "Jharkhand",
-    "Population": 32966238,
-    "AreaInSqKm": 79714,
-    "DensityPerSqKm": 414
+    "PIN": 20,
+    "StateCode": "JH"
   },
   {
+    "SrNo": 16,
+    "State": "Jammu and Kashmir",
+    "PIN": 1,
+    "StateCode": "JK"
+  },
+  {
+    "SrNo": 18,
     "State": "Karnataka",
-    "Population": 61130704,
-    "AreaInSqKm": 191791,
-    "DensityPerSqKm": 319
+    "PIN": 29,
+    "StateCode": "KA"
   },
   {
+    "SrNo": 19,
     "State": "Kerala",
-    "Population": 33387677,
-    "AreaInSqKm": 38863,
-    "DensityPerSqKm": 859
+    "PIN": 32,
+    "StateCode": "KL"
   },
   {
-    "State": "Madhya Pradesh",
-    "Population": 72597565,
-    "AreaInSqKm": 308245,
-    "DensityPerSqKm": 236
+    "SrNo": 20,
+    "State": "Lakshadweep Islands",
+    "PIN": 31,
+    "StateCode": "LD"
   },
   {
-    "State": "Maharashta",
-    "Population": 112372972,
-    "AreaInSqKm": 307713,
-    "DensityPerSqKm": 365
-  },
-  {
-    "State": "Manipur",
-    "Population": 2721756,
-    "AreaInSqKm": 22327,
-    "DensityPerSqKm": 122
-  },
-  {
+    "SrNo": 24,
     "State": "Meghalaya",
-    "Population": 2964007,
-    "AreaInSqKm": 22429,
-    "DensityPerSqKm": 132
+    "PIN": 17,
+    "StateCode": "ME"
   },
   {
+    "SrNo": 22,
+    "State": "Maharashtra",
+    "PIN": 27,
+    "StateCode": "MH"
+  },
+  {
+    "SrNo": 25,
     "State": "Mizoram",
-    "Population": 1091014,
-    "AreaInSqKm": 21081,
-    "DensityPerSqKm": 52
+    "PIN": 15,
+    "StateCode": "MI"
   },
   {
+    "SrNo": 23,
+    "State": "Manipur",
+    "PIN": 14,
+    "StateCode": "MN"
+  },
+  {
+    "SrNo": 21,
+    "State": "Madhya Pradesh",
+    "PIN": 23,
+    "StateCode": "MP"
+  },
+  {
+    "SrNo": 26,
     "State": "Nagaland",
-    "Population": 1980602,
-    "AreaInSqKm": 16579,
-    "DensityPerSqKm": 119
+    "PIN": 13,
+    "StateCode": "NL"
   },
   {
+    "SrNo": 27,
     "State": "Odisha",
-    "Population": 41947358,
-    "AreaInSqKm": 155707,
-    "DensityPerSqKm": 269
+    "PIN": 21,
+    "StateCode": "OR"
   },
   {
+    "SrNo": 29,
     "State": "Punjab",
-    "Population": 27704236,
-    "AreaInSqKm": 50362,
-    "DensityPerSqKm": 550
+    "PIN": 3,
+    "StateCode": "PB"
   },
   {
+    "SrNo": 28,
+    "State": "Pondicherry",
+    "PIN": 34,
+    "StateCode": "PY"
+  },
+  {
+    "SrNo": 30,
     "State": "Rajasthan",
-    "Population": 68621012,
-    "AreaInSqKm": 342239,
-    "DensityPerSqKm": 201
+    "PIN": 8,
+    "StateCode": "RJ"
   },
   {
+    "SrNo": 31,
     "State": "Sikkim",
-    "Population": 607688,
-    "AreaInSqKm": 7096,
-    "DensityPerSqKm": 86
+    "PIN": 11,
+    "StateCode": "SK"
   },
   {
+    "SrNo": 32,
     "State": "Tamil Nadu",
-    "Population": 72138958,
-    "AreaInSqKm": 130058,
-    "DensityPerSqKm": 555
+    "PIN": 33,
+    "StateCode": "TN"
   },
   {
-    "State": "Telangana",
-    "Population": 35286757,
-    "AreaInSqKm": 114840,
-    "DensityPerSqKm": 307
-  },
-  {
+    "SrNo": 34,
     "State": "Tripura",
-    "Population": 3671032,
-    "AreaInSqKm": 10486,
-    "DensityPerSqKm": 350
+    "PIN": 16,
+    "StateCode": "TR"
   },
   {
+    "SrNo": 33,
+    "State": "Telangana",
+    "PIN": 36,
+    "StateCode": "TS"
+  },
+  {
+    "SrNo": 35,
     "State": "Uttar Pradesh",
-    "Population": 199812341,
-    "AreaInSqKm": 240928,
-    "DensityPerSqKm": 828
+    "PIN": 9,
+    "StateCode": "UP"
   },
   {
+    "SrNo": 36,
     "State": "Uttarakhand",
-    "Population": 10116752,
-    "AreaInSqKm": 53483,
-    "DensityPerSqKm": 189
+    "PIN": 5,
+    "StateCode": "UT"
   },
   {
+    "SrNo": 37,
     "State": "West Bengal",
-    "Population": 91347736,
-    "AreaInSqKm": 88752,
-    "DensityPerSqKm": 1029
+    "PIN": 19,
+    "StateCode": "WB"
   }
 ]

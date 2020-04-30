@@ -192,5 +192,29 @@ namespace Tests
             string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnLastData(stateCensusfilePath, jsonPathstateCensus, "State");
             Assert.AreEqual(expected, lastValue);
         }
+
+        /// <Test 13>
+        ///  Test for StateCodeCsv and json path to add into json after sorting return return first stateCode.
+        /// </Test 13>
+        [Test]
+        public void CheckStateCensusDataAndAddToJsonPathAndSorting_ReturnFirstStateCode()
+        {
+            string expected = "AD";
+            string stateCensusfilePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnFirstData(stateCensusfilePath, jsonPathstateCensus, "StateCode");
+            Assert.AreEqual(expected, lastValue);
+        }
+
+        /// <Test 14>
+        ///  Test for StateCodeCsv and json path to add into json after sorting return return last stateCode.
+        /// </Test 14>
+        [Test]
+        public void CheckStateCensusDataAndAddToJsonPathAndSorting_ReturnLatStateCode()
+        {
+            string expected = "WB";
+            string stateCensusfilePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnLastData(stateCensusfilePath, jsonPathstateCensus, "StateCode");
+            Assert.AreEqual(expected, lastValue);
+        }
     }// End of CensusTests
 }// End of namespace Tests
