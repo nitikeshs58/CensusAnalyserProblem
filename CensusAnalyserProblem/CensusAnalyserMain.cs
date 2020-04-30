@@ -2,9 +2,9 @@
 
 namespace CensusAnalyserProblem
 {
-    public class StateCensusAnalyser: ICSVBuilder
+    public class StateCensusAnalyser : ICSVBuilder
     {
-        public static string stateCensusPath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
+        public static string stateCensusPath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
         // variables declaration
         string[] header;
         char delimeter;
@@ -13,6 +13,7 @@ namespace CensusAnalyserProblem
         // Main Method
         static void Main(string[] args)
         {
+
         }//end: static void Main(string[] args)
 
         // Default Constructor
@@ -54,4 +55,3 @@ namespace CensusAnalyserProblem
         }
     }//End of class StateCensusAnalyser            
 }// End of namespace CensusAnalyserProblem
-

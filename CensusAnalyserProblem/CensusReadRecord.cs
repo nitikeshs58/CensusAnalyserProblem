@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using CsvReader = LumenWorks.Framework.IO.Csv.CsvReader;
 
 namespace CensusAnalyserProblem
 {
-    class CsvStateCensusReadRecord
+    public class CsvStateCensusReadRecord
     {
         // Variables
         string actualPath;
@@ -18,7 +19,7 @@ namespace CensusAnalyserProblem
         }
 
         //Parameterised constructor
-        public CsvStateCensusReadRecord(string filePath=null)
+        public CsvStateCensusReadRecord(string filePath = null)
         {
             this.actualPath = filePath;
         }
@@ -37,7 +38,7 @@ namespace CensusAnalyserProblem
                     throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.FILE_NOT_FOUND, "Invalid file");
                 }
 
-                CsvReader csvRecords = new CsvReader(new StreamReader(filePath),true);
+                CsvReader csvRecords = new CsvReader(new StreamReader(filePath), true);
                 int fieldCount = csvRecords.FieldCount;
                 string[] headers = csvRecords.GetFieldHeaders();
                 delimeter = csvRecords.Delimiter;
@@ -51,9 +52,9 @@ namespace CensusAnalyserProblem
                     numberOfRecord++;
                 }
 
-                if(numberOfRecord==0)
+                if (numberOfRecord == 0)
                 {
-                    throw new CSVException(CSVException.ExceptionType.FILE_IS_EMPTY,"File has no data");
+                    throw new CSVException(CSVException.ExceptionType.FILE_IS_EMPTY, "File has no data");
                 }
                 if (!in_delimeter.Equals(delimeter))
                 {
@@ -69,7 +70,7 @@ namespace CensusAnalyserProblem
             {
                 return file_not_found.Message;
             }
-            catch(CSVException emptyFileException)
+            catch (CSVException emptyFileException)
             {
                 return emptyFileException.Message;
             }
@@ -97,5 +98,51 @@ namespace CensusAnalyserProblem
             }
             return true;
         }//End of isHeadersame
+
+        public static JArray SortingJsonBasedOnKey(string jsonFilePath, string key)
+        {
+            string jsonFile = File.ReadAllText(jsonFilePath);
+            JArray CensusArray = JArray.Parse(jsonFile);
+            //bubble sort
+            for (int i = 0; i < CensusArray.Count - 1; i++)
+            {
+                for (int j = 0; j < CensusArray.Count - i - 1; j++)
+                {
+                    if (CensusArray[j][key].ToString().CompareTo(CensusArray[j + 1][key].ToString()) > 0)
+                    {
+                        var temp = CensusArray[j + 1];
+                        CensusArray[j + 1] = CensusArray[j];
+                        CensusArray[j] = temp;
+                    }
+                }
+            }
+            return CensusArray;
+        }
+        /// <summary>
+        /// Method to retrive the first state data
+        /// </summary>
+        /// <param name="jsonPath"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string RetriveFirstDataOnKey(string jsonPath, string key)
+        {
+            string jsonFileText = File.ReadAllText(jsonPath);
+            JArray jArray = JArray.Parse(jsonFileText);
+            string firstValue = jArray[0][key].ToString();
+            return firstValue;
+        }
+        /// <summary>
+        /// Method to retrive the last state data
+        /// </summary>
+        /// <param name="jsonPath"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string RetriveLastDataOnKey(string jsonPath, string key)
+        {
+            string jsonFileText = File.ReadAllText(jsonPath);
+            JArray jArray = JArray.Parse(jsonFileText);
+            string lastValue = jArray[jArray.Count - 1][key].ToString();
+            return lastValue;
+        }
     }
 }

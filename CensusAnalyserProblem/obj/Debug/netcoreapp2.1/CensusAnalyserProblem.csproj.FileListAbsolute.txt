@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\bin\Debug\netcoreapp2.1\CensusAnalyserProblem.deps.json
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\bin\Debug\netcoreapp2.1\CensusAnalyserProblem.runtimeconfig.json
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\bin\Debug\netcoreapp2.1\CensusAnalyserProblem.runtimeconfig.dev.json
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\bin\Debug\netcoreapp2.1\CensusAnalyserProblem.dll
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\bin\Debug\netcoreapp2.1\CensusAnalyserProblem.pdb
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.AssemblyInfo.cs
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.dll
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.pdb
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.genruntimeconfig.cache
+C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\obj\Debug\netcoreapp2.1\CensusAnalyserProblem.csproj.CoreCompileInputs.cache

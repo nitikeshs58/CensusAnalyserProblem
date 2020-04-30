@@ -2,9 +2,9 @@
 
 namespace CensusAnalyserProblem
 {
-    public class CsvStates: ICSVBuilder
+    public class CsvStates : ICSVBuilder
     {
-        public static string stateCodePath = @"C:\Users\Admin\Documents\Visual Studio 2017\Projects\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+        public static string stateCodePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
         // variables declaration
         readonly string[] header;
         readonly char delimeter;
@@ -16,7 +16,7 @@ namespace CensusAnalyserProblem
         }
 
         // CsvStates parameterised constructor
-        public  CsvStates(string[] header, char delimeter, string givenPath)
+        public CsvStates(string[] header, char delimeter, string givenPath)
         {
             this.header = header;
             this.delimeter = delimeter;
@@ -34,7 +34,7 @@ namespace CensusAnalyserProblem
         public static object CsvStateCodeReadRecord(string[] header, char delimeter, string givenPath)
         {
             CsvStateCensusReadRecord stateCodePathObject = new CsvStateCensusReadRecord(stateCodePath);
-            var returnObject= stateCodePathObject.ReadRecords(header, delimeter,givenPath);
+            var returnObject = stateCodePathObject.ReadRecords(header, delimeter, givenPath);
             return returnObject;
         }
 
