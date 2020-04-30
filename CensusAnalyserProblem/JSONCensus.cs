@@ -45,11 +45,11 @@ namespace CensusAnalyserProblem
     {
         string readFile = File.ReadAllText(filePath);
         StringBuilder stringbuilder = new StringBuilder();
-        using (var reader = ChoCSVReader.LoadText(readFile)
-                                   .WithFirstLineHeader())
-        {
-            using (var writer = new ChoJSONWriter(stringbuilder)) writer.Write(reader);
-        }
+            using (var reader = ChoCSVReader.LoadText(readFile)
+                                       .WithFirstLineHeader())
+            {
+                using (var writer = new ChoJSONWriter(stringbuilder)) writer.Write(reader);
+            }
         File.WriteAllText(jsonFilepath, stringbuilder.ToString());
         JArray array = CsvStateCensusReadRecord.SortingJsonBasedOnKey(jsonFilepath, key);
         // serialize JSON to a string and then write string to a file
