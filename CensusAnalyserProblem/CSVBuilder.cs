@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿///---------------------------------------------------------------------------------------
+///   Interface:----> ICSVBuilder
+///   Description:--> Created interface ICSVBuilder for reading and fetching data from file
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020
+///----------------------------------------------------------------------------------------
 
 namespace CensusAnalyserProblem
 {

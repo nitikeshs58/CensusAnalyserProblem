@@ -1,6 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿///--------------------------------------------------------------------------
+///   Class:--------> CSVFactory
+///   Description:--> Created two instance method of StateCensusAnalyser:
+///                     1)CsvStateCodeData DelegateOfCsvStates
+///                     2)CsvStateCensusData DelegateOfStateCensusAnalyser                   
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020
+///--------------------------------------------------------------------------
+
 using static CensusAnalyserProblem.CsvStates;
 using static CensusAnalyserProblem.StateCensusAnalyser;
 

@@ -1,3 +1,9 @@
+///-----------------------------------------------------------------
+///   Class:        Tests
+///   Description:  Test cases for India Census data
+///   Author:       Nitikesh Shinde                     Date: 01/05/2020
+///------------------------------------------------------------------
+
 using CensusAnalyserProblem;
 using NUnit.Framework;
 using static CensusAnalyserProblem.StateCensusAnalyser;
@@ -11,8 +17,12 @@ namespace Tests
         // DeligateMethod -------Object-------Reference to delegate method
         readonly CsvStateCensusData stateCensus = CSVFactory.DelegateOfStateCensusAnalyser();
         readonly CsvStateCodeData stateCode = CSVFactory.DelegateOfCsvStates();
+        
+        public string stateCensusDataPath= @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
+        public string stateCodePath= @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
         public string jsonPathstateCensus = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.json";
         public string jsonPathstateCode = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.json";
+        
         [SetUp]
         public void Setup()
         {
@@ -29,7 +39,7 @@ namespace Tests
         {
             char delimeter = ',';
             string[] header = { "State", "Population", "AreaInSqKm", "DensityPerSqKm" };
-            string path = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
+            string path = stateCensusDataPath;
             var numberOfRecords = stateCensus(header, delimeter, path);
             Assert.AreEqual(29, numberOfRecords);
         }
@@ -73,7 +83,7 @@ namespace Tests
         public void CheckInCorrectDelimeter()
         {
             char userDelimeter = ';';
-            string path = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
+            string path = stateCensusDataPath;
             object exceptionMessage = stateCensus(null, userDelimeter, path);
             Assert.AreEqual("Incorrect Delimeter", exceptionMessage);
         }
@@ -88,7 +98,7 @@ namespace Tests
         {
             string[] header = { "State", "InvalidHeader", "AreaInSqKm", "DensityPerSqKm" };
             char userDelimeter = ',';
-            string path = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
+            string path = stateCensusDataPath;
             object exceptionMessage = stateCensus(header, userDelimeter, path);
             Assert.AreEqual("Invalid Header", exceptionMessage);
         }
@@ -105,7 +115,7 @@ namespace Tests
         {
             char delimeter = ',';
             string[] header = { "SrNo", "State", "PIN", "StateCode" };
-            string path = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            string path = stateCodePath;
             var numberOfRecords = stateCode(header, delimeter, path);
             Assert.AreEqual(37, numberOfRecords);
         }
@@ -150,7 +160,7 @@ namespace Tests
         {
             char delimeter = ';';
             string[] header = { "SrNo", "State", "PIN", "StateCode" };
-            string path = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            string path =stateCodePath;
             object exceptionMessage = stateCode(header, delimeter, path);
             Assert.AreEqual("Incorrect Delimeter", exceptionMessage);
         }
@@ -165,7 +175,7 @@ namespace Tests
         {
             char delimeter = ',';
             string[] header = { "SrNo", "InvalidState", "PIN", "StateCode" };
-            string path = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+            string path = stateCodePath;
             object exceptionMessage = stateCode(header, delimeter, path);
             Assert.AreEqual("Invalid Header", exceptionMessage);
         }
@@ -177,8 +187,7 @@ namespace Tests
         public void CheckStateCensusDataAndAddToJsonPathAndSorting_ReturnFirstState()
         {
             string expected = "Andhra Pradesh";
-            string stateCensusfilePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
-            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnFirstData(stateCensusfilePath, jsonPathstateCensus, "State");
+            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnFirstData(stateCensusPath, jsonPathstateCensus, "State");
             Assert.AreEqual(expected, lastValue);
         }
         /// <Test 12>
@@ -188,8 +197,7 @@ namespace Tests
         public void CheckStateCensusDataAndAddToJsonPathAndSorting__ReturnLastState()
         {
             string expected = "West Bengal";
-            string stateCensusfilePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
-            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnLastData(stateCensusfilePath, jsonPathstateCensus, "State");
+            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnLastData(stateCensusPath, jsonPathstateCensus, "State");
             Assert.AreEqual(expected, lastValue);
         }
 
@@ -200,8 +208,7 @@ namespace Tests
         public void CheckStateCensusDataAndAddToJsonPathAndSorting_ReturnFirstStateCode()
         {
             string expected = "AD";
-            string stateCensusfilePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
-            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnFirstData(stateCensusfilePath, jsonPathstateCensus, "StateCode");
+            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnFirstData(stateCodePath, jsonPathstateCensus, "StateCode");
             Assert.AreEqual(expected, lastValue);
         }
 
@@ -212,8 +219,7 @@ namespace Tests
         public void CheckStateCensusDataAndAddToJsonPathAndSorting_ReturnLatStateCode()
         {
             string expected = "WB";
-            string stateCensusfilePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
-            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnLastData(stateCensusfilePath, jsonPathstateCensus, "StateCode");
+            string lastValue = JSONCensus.SortCsvFileWriteInJsonAndReturnLastData(stateCodePath, jsonPathstateCensus, "StateCode");
             Assert.AreEqual(expected, lastValue);
         }
     }// End of CensusTests

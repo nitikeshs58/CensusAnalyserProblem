@@ -1,4 +1,10 @@
-﻿using System;
+﻿///---------------------------------------------------------------------------
+///   Class:--------> CSVException                                            
+///   Description:--> Created seperate enum Exception Type as FILE_IS_EMPLTY                          -///
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020    
+///---------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

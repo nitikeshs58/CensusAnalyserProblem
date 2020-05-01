@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿///-----------------------------------------------------------------------------
+///   Class:--------> CensusAnalyserException                                    
+///   Description:--> Declared enum Exception types                              
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020       
+///-----------------------------------------------------------------------------
+
+using System;
 
 namespace CensusAnalyserProblem
 {
-    
+
     public class CensusAnalyserException:Exception
     {
         // ExceptionType variable declared

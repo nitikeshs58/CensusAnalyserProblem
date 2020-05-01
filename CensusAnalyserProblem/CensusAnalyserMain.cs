@@ -1,4 +1,12 @@
-﻿using System;
+﻿///-----------------------------------------------------------------------------
+///   Class:--------> StateCensusAnalyser                                        
+///   Description:--> Created parameterised constructor and                      
+///                   delegate object CsvStateCensusData                         
+///                   Method calling for CsvStateCensusReadRecord is done.       
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020       
+///----------------------------------------------------------------------------
+
+using System;
 
 namespace CensusAnalyserProblem
 {
@@ -13,7 +21,6 @@ namespace CensusAnalyserProblem
         // Main Method
         static void Main(string[] args)
         {
-
         }//end: static void Main(string[] args)
 
         // Default Constructor

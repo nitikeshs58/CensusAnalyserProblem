@@ -1,4 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
+﻿///-------------------------------------------------------------------------------
+///   Class:--------> CsvStateCensusReadRecord
+///   Description:--> Read records/fields of csv files and Returned required output
+///                   as Exception message or values to pass Test Cases.
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020
+///-------------------------------------------------------------------------------
+
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -99,6 +106,7 @@ namespace CensusAnalyserProblem
             return true;
         }//End of isHeadersame
 
+        //Created dictionary
         public int CountRecords(string[] records)
         {
             int j = 1;

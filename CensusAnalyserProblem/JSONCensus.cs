@@ -1,4 +1,13 @@
-﻿using System;
+﻿///-----------------------------------------------------------------------------
+///   Class:--------> JSONCensus                                                 
+///   Description:--> Methods to return First and last data as per KeyValue
+///                   Added .csv data in JSON format and sorting is done Alphabetically
+///                     1)SortCsvFileWriteInJsonAndReturnFirstData
+///                     2)SortCsvFileWriteInJsonAndReturnLastData
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020       
+///-----------------------------------------------------------------------------
+
+using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;

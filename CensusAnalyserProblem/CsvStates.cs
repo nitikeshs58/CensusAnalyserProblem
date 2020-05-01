@@ -1,4 +1,12 @@
-﻿using System;
+﻿///-----------------------------------------------------------------------------
+///   Class:--------> CsvStates                                                  
+///   Description:--> Created parameterised constructor and                      
+///                   delegate object CsvStateCodeData                         
+///                   Method calling for CsvStateCensusReadRecord is done.                        
+///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020       
+///-----------------------------------------------------------------------------
+
+using System;
 
 namespace CensusAnalyserProblem
 {
