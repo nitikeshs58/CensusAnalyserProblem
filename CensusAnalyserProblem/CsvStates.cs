@@ -10,7 +10,7 @@ using System;
 
 namespace CensusAnalyserProblem
 {
-    public class CsvStates : ICSVBuilder
+    public class CsvStatesDao : ICSVBuilder
     {
         public static string stateCodePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
         // variables declaration
@@ -19,12 +19,12 @@ namespace CensusAnalyserProblem
         readonly string givenPath;
 
         // Default Constructor
-        public CsvStates()
+        public CsvStatesDao()
         {
         }
 
         // CsvStates parameterised constructor
-        public CsvStates(string[] header, char delimeter, string givenPath)
+        public CsvStatesDao(string[] header, char delimeter, string givenPath)
         {
             this.header = header;
             this.delimeter = delimeter;
@@ -32,7 +32,7 @@ namespace CensusAnalyserProblem
         }
 
         // Delegate is a reference type variable that hold the refenence to a method
-        public delegate object CsvStateCodeData(string[] header, char delimeter, string givenPath);
+        public delegate object CsvStateCodeDataDao(string[] header, char delimeter, string givenPath);
 
         /// <CsvStateCodeReadRecord>
         /// Creating object of class 'StateCensusAnalyser' as 'stateCodePathObject,
@@ -46,12 +46,12 @@ namespace CensusAnalyserProblem
             return returnObject;
         }
 
-        private static CsvStates InstanceOfCsvStates()
+        private static CsvStatesDao InstanceOfCsvStates()
         {
             throw new NotImplementedException();
         }
 
-        private static StateCensusAnalyser InstanceOfStateCensusAnalyser()
+        private static StateCensusAnalyserDao InstanceOfStateCensusAnalyser()
         {
             throw new NotImplementedException();
         }
