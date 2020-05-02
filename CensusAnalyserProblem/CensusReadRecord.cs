@@ -31,7 +31,14 @@ namespace CensusAnalyserProblem
             this.actualPath = filePath;
         }
 
-        // ReadRecords Method
+        /// <ReadRecords>
+        /// Reading the Records of the given filePath
+        /// Return value or an Exception message to pass the test case.
+        /// </summary>
+        /// <param name="passHeader"></param>
+        /// <param name="in_delimeter"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public object ReadRecords(string[] passHeader = null, char in_delimeter = ',', string filePath = null)
         {
             try
@@ -106,28 +113,12 @@ namespace CensusAnalyserProblem
             return true;
         }//End of isHeadersame
 
-        //Created dictionary
-        public int CountRecords(string[] records)
-        {
-            int j = 1;
-            Dictionary<int, Dictionary<string, string>> map = new Dictionary<int, Dictionary<string, string>>();
-            string[] key = records[0].Split(',');
-            for (int i = 1; i < records.Length; i++)
-            {
-                string[] value = records[i].Split(',');
-                Dictionary<string, string> maping = new Dictionary<string, string>()
-                {
-                  { key[0], value[0] },
-                  { key[1], value[1] },
-                  { key[2], value[2] },
-                  { key[3], value[3] },
-                };
-                map.Add(j, maping);
-                j++;
-            }
-            return map.Count;
-        }
-
+        /// <SortingJsonBasedOnKey>
+        /// Sorting String based on Key and Returning sorted array. 
+        /// </summary>
+        /// <param name="jsonFilePath"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static JArray SortingJsonBasedOnKey(string jsonFilePath, string key)
         {
             string jsonFile = File.ReadAllText(jsonFilePath);
@@ -148,6 +139,12 @@ namespace CensusAnalyserProblem
             return CensusArray;
         }
 
+        /// <summary>
+        /// Sorting interger based on Key and Returning sorted array. 
+        /// </summary>
+        /// <param name="jsonPath"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static JArray SortJsonBasedOnKeyAndValueIsNumber(string jsonPath, string key)
         {
             string jsonFile = File.ReadAllText(jsonPath);
