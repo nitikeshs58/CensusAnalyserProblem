@@ -263,9 +263,9 @@ namespace Tests
             string mostDensityPerKm = JSONCensus.ReturnDataNumberOfStatesHighestSortCSVFileAndWriteInJson(stateCensusPath, jsonPathstateCensus, "AreaInSqKm");
             Assert.AreEqual(expected, mostDensityPerKm);
         }
-        /// <Test 19>
-        /// Test for StateCensuscsv and json path to add into json after sorting return most AreaInSqKm.
-        /// </Test 19>
+        /// <Test 20>
+        /// Test for StateCensuscsv and json path to add into json after sorting return Least AreaInSqKm.
+        /// </Test 20>
         [Test]
         public void CheckStateCensusDataAndAddToJsonPathAndSortFromLeastAreaInSqKmToMost_ReturnAreaInSqKmv()
         {
