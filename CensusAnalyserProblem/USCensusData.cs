@@ -16,9 +16,10 @@ namespace CensusAnalyserProblem
     {
         public static string USDataPath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\USCensusData.csv";
         // variables declaration
-        readonly string[] header;
-        readonly char delimeter;
-        readonly string givenPath;
+        public string stateCensusFilePath;
+        public char delimeter;
+        public string[] header;
+        public string givenPath;
 
         // Default Constructor
         public USCensusDataDao()
@@ -34,7 +35,7 @@ namespace CensusAnalyserProblem
         }
 
         // Delegate is a reference type variable that hold the refenence to a method
-        public delegate object CsvUSCensusData(string[] header, char delimeter, string givenPath);
+        public delegate object CsvUSCensusDataDao(string[] header, char delimeter, string givenPath);
 
         /// <CsvStateCodeReadRecord>
         /// Creating object of class 'StateCensusAnalyser' as 'stateCodePathObject,
