@@ -16,10 +16,10 @@ namespace CensusAnalyserProblem
     {
         public static string USDataPath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\USCensusData.csv";
         // variables declaration
-        public string stateCensusFilePath;
-        public char delimeter;
-        public string[] header;
-        public string givenPath;
+        public string stateCensusFilePath { get; set; }
+        public char delimeter { get; set; }
+        public string[] header { get; set; }
+        public string givenPath { get; set; }
 
         // Default Constructor
         public USCensusDataDao()
