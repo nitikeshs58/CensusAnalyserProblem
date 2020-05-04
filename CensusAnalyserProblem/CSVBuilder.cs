@@ -1,7 +1,7 @@
 ﻿///---------------------------------------------------------------------------------------
 ///   Interface:----> ICSVBuilder
 ///   Description:--> Created interface ICSVBuilder for reading and fetching data from file
-///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020
+///   Author:-------> Nitikesh Shinde                     Date: 04/05/2020
 ///----------------------------------------------------------------------------------------
 
 namespace CensusAnalyserProblem
@@ -11,5 +11,6 @@ namespace CensusAnalyserProblem
     {
         object CsvStateCensusReadRecord(string[] header, char delimeter, string givenPath);
         object CsvStateCodeReadRecord(string[] header, char delimeter, string givenPath);
+        object CsvUSCensusDataReadRecord(string[] header, char delimeter, string givenPath);
     }
 }
