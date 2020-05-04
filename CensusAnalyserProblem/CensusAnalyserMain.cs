@@ -60,5 +60,10 @@ namespace CensusAnalyserProblem
         {
             throw new NotImplementedException();
         }
+
+        object ICSVBuilder.CsvUSCensusDataReadRecord(string[] header, char delimeter, string givenPath)
+        {
+            throw new NotImplementedException();
+        }
     }//End of class StateCensusAnalyser            
 }// End of namespace CensusAnalyserProblem

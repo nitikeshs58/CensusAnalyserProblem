@@ -1,30 +1,32 @@
 ﻿///-----------------------------------------------------------------------------
-///   Class:--------> CsvStates                                                  
+///   Class:--------> USCensusData                                                  
 ///   Description:--> Created parameterised constructor and                      
-///                   delegate object CsvStateCodeData                         
+///                   delegate object CsvUSCensusData                         
 ///                   Method calling for CsvStateCensusReadRecord is done.                        
-///   Author:-------> Nitikesh Shinde                     Date: 01/05/2020       
+///   Author:-------> Nitikesh Shinde                     Date: 04/05/2020       
 ///-----------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CensusAnalyserProblem
 {
-    public class CsvStatesDao : ICSVBuilder
+    public class USCensusDataDao : ICSVBuilder
     {
-        public static string stateCodePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
+        public static string USDataPath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\USCensusData.csv";
         // variables declaration
         readonly string[] header;
         readonly char delimeter;
         readonly string givenPath;
 
         // Default Constructor
-        public CsvStatesDao()
+        public USCensusDataDao()
         {
         }
 
         // CsvStates parameterised constructor
-        public CsvStatesDao(string[] header, char delimeter, string givenPath)
+        public USCensusDataDao(string[] header, char delimeter, string givenPath)
         {
             this.header = header;
             this.delimeter = delimeter;
@@ -32,17 +34,17 @@ namespace CensusAnalyserProblem
         }
 
         // Delegate is a reference type variable that hold the refenence to a method
-        public delegate object CsvStateCodeDataDao(string[] header, char delimeter, string givenPath);
+        public delegate object CsvUSCensusData(string[] header, char delimeter, string givenPath);
 
         /// <CsvStateCodeReadRecord>
         /// Creating object of class 'StateCensusAnalyser' as 'stateCodePathObject,
         /// return object is returnrd to test case.
         /// </CsvStateCodeReadRecord>
         /// <returns></returnObject>
-        public static object CsvStateCodeReadRecord(string[] header, char delimeter, string givenPath)
+        public static object CsvUSCensusDataReadRecord(string[] header, char delimeter, string givenPath)
         {
-            CsvStateCensusReadRecord stateCodePathObject = new CsvStateCensusReadRecord(stateCodePath);
-            var returnObject = stateCodePathObject.ReadRecords(header, delimeter, givenPath);
+            CsvStateCensusReadRecord usCensusDataPathObject = new CsvStateCensusReadRecord(USDataPath);
+            var returnObject = usCensusDataPathObject.ReadRecords(header, delimeter, givenPath);
             return returnObject;
         }
 
@@ -60,5 +62,5 @@ namespace CensusAnalyserProblem
         {
             throw new NotImplementedException();
         }
-    }//End of class CsvStates    
-}// End of namespace CensusAnalyserProblem
+    }
+}
