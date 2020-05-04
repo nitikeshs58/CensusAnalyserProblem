@@ -3,7 +3,7 @@
 ///   Description:--> Created two instance method of StateCensusAnalyser:
 ///                     1)CsvStateCodeData DelegateOfCsvStates
 ///                     2)CsvStateCensusData DelegateOfStateCensusAnalyser  
-///                     3)
+///                     3)CsvUSCensusDataDao DelegateOfUSCensusData
 ///   Author:-------> Nitikesh Shinde                     Date: 04/05/2020
 ///--------------------------------------------------------------------------
 
@@ -38,16 +38,16 @@ namespace CensusAnalyserProblem
         }
 
         // Method to creating instance of USCensusData
-        public static CsvUSCensusData DelegateOfUSCensusData()
+        public static CsvUSCensusDataDao DelegateOfUSCensusData()
         {
             USCensusDataDao csvUSData = InstanceOfUSCensusData();
-            CsvUSCensusData getUSData = new CsvUSCensusData(USCensusDataDao.CsvUSCensusDataReadRecord);
+            CsvUSCensusDataDao getUSData = new CsvUSCensusDataDao(USCensusDataDao.CsvUSCensusDataReadRecord);
             return getUSData;
         }
 
         private static USCensusDataDao InstanceOfUSCensusData()
         {
-            throw new NotImplementedException();
+            return new USCensusDataDao();
         }
 
         private static CsvStatesDao InstanceOfCsvStates()

@@ -14,9 +14,10 @@ namespace CensusAnalyserProblem
     {
         public static string stateCensusPath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCensusData.csv";
         // variables declaration
-        string[] header;
-        char delimeter;
-        string givenPath;
+        public string stateCensusFilePath;
+        public char delimeter;
+        public string[] header;
+        public string givenPath;
 
         // Main Method
         static void Main(string[] args)

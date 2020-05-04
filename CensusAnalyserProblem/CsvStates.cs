@@ -14,9 +14,10 @@ namespace CensusAnalyserProblem
     {
         public static string stateCodePath = @"C:\Users\Admin\source\repos\CensusAnalyserProblem\CensusAnalyserProblem\StateCode.csv";
         // variables declaration
-        readonly string[] header;
-        readonly char delimeter;
-        readonly string givenPath;
+        public string stateCensusFilePath;
+        public char delimeter;
+        public string[] header;
+        public string givenPath;
 
         // Default Constructor
         public CsvStatesDao()
@@ -48,6 +49,7 @@ namespace CensusAnalyserProblem
 
         object ICSVBuilder.CsvStateCensusReadRecord(string[] header, char delimeter, string givenPath)
         {
+            // we have method 
             throw new NotImplementedException();
         }
 
